@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager_using_flutter_firebase/auth/forgot.dart';
-import 'package:personal_finance_manager_using_flutter_firebase/widgets/customtextfield.dart';
 import '../widgets/awesomeclipper.dart';
+import '../widgets/customtextfield.dart';
 
-class SigninScreen extends StatelessWidget {
+class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,10 +16,10 @@ class SigninScreen extends StatelessWidget {
                 color: Colors.blue.shade900,
                 child: Center(
                   child: Text(
-                    'Sign In',
+                    'Forgot Password',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 30,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -31,37 +30,23 @@ class SigninScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
+                  Text(
+                    'Enter your email address and we will send you instructions to reset your password.',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.blue.shade900,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 32),
                   CustomTextFormField(
                     labelText: 'Email',
                     icon: Icons.email,
                   ),
-                  SizedBox(height: 16),
-                  CustomTextFormField(
-                    labelText: 'Password',
-                    icon: Icons.lock,
-                    obscureText: true,
-                  ),
-                  SizedBox(height: 16),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ForgotPasswordScreen(),
-                            ));
-                      },
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Colors.blue.shade900),
-                      ),
-                    ),
-                  ),
                   SizedBox(height: 32),
                   ElevatedButton(
                     onPressed: () {
-                      // Handle signin logic
+                      // Handle forgot password logic
                     },
                     style: ElevatedButton.styleFrom(
                       padding:
@@ -72,9 +57,9 @@ class SigninScreen extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Sign In',
+                      'Reset Password',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 15,
                         color: Colors.white,
                       ),
                     ),
@@ -82,14 +67,10 @@ class SigninScreen extends StatelessWidget {
                   SizedBox(height: 16),
                   TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SigninScreen(),
-                          ));
+                      Navigator.pop(context);
                     },
                     child: Text(
-                      "Don't have an account? Sign Up",
+                      'Back to Sign In',
                       style: TextStyle(color: Colors.blue.shade900),
                     ),
                   ),

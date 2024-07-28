@@ -1,6 +1,7 @@
-// lib/signup_screen.dart
 import 'package:flutter/material.dart';
+import 'package:personal_finance_manager_using_flutter_firebase/auth/signin.dart';
 import 'package:personal_finance_manager_using_flutter_firebase/widgets/awesomeclipper.dart';
+import 'package:personal_finance_manager_using_flutter_firebase/widgets/customtextfield.dart';
 
 class SignupScreen extends StatelessWidget {
   @override
@@ -30,35 +31,20 @@ class SignupScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person),
-                      labelText: 'Username',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                  CustomTextFormField(
+                    labelText: 'Username',
+                    icon: Icons.person,
                   ),
                   SizedBox(height: 16),
-                  TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
-                      labelText: 'Email',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                  CustomTextFormField(
+                    labelText: 'Email',
+                    icon: Icons.email,
                   ),
                   SizedBox(height: 16),
-                  TextField(
+                  CustomTextFormField(
+                    labelText: 'Password',
+                    icon: Icons.lock,
                     obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
-                      labelText: 'Password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
                   ),
                   SizedBox(height: 32),
                   ElevatedButton(
@@ -68,6 +54,7 @@ class SignupScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       padding:
                           EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+                      backgroundColor: Colors.blue.shade900,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -83,11 +70,15 @@ class SignupScreen extends StatelessWidget {
                   SizedBox(height: 16),
                   TextButton(
                     onPressed: () {
-                      // Navigate to login screen
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SigninScreen(),
+                          ));
                     },
                     child: Text(
                       'Already have an account? Login',
-                      style: TextStyle(color: Colors.blue.shade700),
+                      style: TextStyle(color: Colors.blue.shade900),
                     ),
                   ),
                 ],

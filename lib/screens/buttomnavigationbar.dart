@@ -25,37 +25,67 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void _onAddExpense() {
+    // Handle the add expense action here
+    print("Add Expense Button Pressed");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        automaticallyImplyLeading: false,
         title: Text('Personal Finance Manager'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.money_off),
-            label: 'Expenses',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.attach_money),
-            label: 'Income',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart),
-            label: 'Statistics',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.pie_chart),
-            label: 'Budget',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue.shade900,
-        onTap: _onItemTapped,
+      floatingActionButton: FloatingActionButton(
+        onPressed: _onAddExpense,
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue.shade900,
+        shape: CircleBorder(),
+        elevation: 6.0,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 4.0, // Reduce notch margin
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            buildTabItem(index: 0, icon: Icons.home_sharp, label: 'Home'),
+            buildTabItem(index: 1, icon: Icons.attach_money, label: 'Budget'),
+            SizedBox(width: 48), // Ensure space for FloatingActionButton
+            buildTabItem(index: 2, icon: Icons.bar_chart, label: 'Statistics'),
+            buildTabItem(
+                index: 3, icon: Icons.person_3_outlined, label: 'Profile'),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildTabItem(
+      {required int index, required IconData icon, required String label}) {
+    return Expanded(
+      child: IconButton(
+        icon: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon,
+                color: _selectedIndex == index
+                    ? Colors.blue.shade900
+                    : Colors.grey),
+            Text(label,
+                style: TextStyle(
+                    color: _selectedIndex == index
+                        ? Colors.blue.shade900
+                        : Colors.grey)),
+          ],
+        ),
+        onPressed: () => _onItemTapped(index),
       ),
     );
   }

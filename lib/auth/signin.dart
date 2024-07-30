@@ -62,7 +62,11 @@ class SigninScreen extends StatelessWidget {
                   SizedBox(height: 32),
                   ElevatedButton(
                     onPressed: () {
-                      // Handle signin logic
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ));
                     },
                     style: ElevatedButton.styleFrom(
                       padding:
@@ -72,20 +76,11 @@ class SigninScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomeScreen(),
-                            ));
-                      },
-                      child: Text(
-                        'Sign In',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
+                    child: Text(
+                      'Sign In',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
                       ),
                     ),
                   ),

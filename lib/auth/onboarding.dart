@@ -60,8 +60,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
               child: Text(
                 'Skip',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.blue.shade900, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -79,18 +79,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Adding space between skip button and image
           Spacer(),
           Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical: 20.0), // Space around the image
+            padding: const EdgeInsets.symmetric(vertical: 20.0),
             child: Image.asset(
               image,
               height: 300,
               fit: BoxFit.contain,
             ),
           ),
-          SizedBox(height: 32), // Space between the image and card container
+          SizedBox(height: 32),
           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),

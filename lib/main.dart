@@ -16,7 +16,13 @@ class MyApp extends StatelessWidget {
       title: 'Personal Finance Manager',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(
+            backgroundColor: Colors.blue.shade900,
+            titleTextStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold)),
+        scaffoldBackgroundColor: Colors.white70,
         textTheme: TextTheme(
           bodyMedium: TextStyle(color: Colors.blue.shade900),
         ),

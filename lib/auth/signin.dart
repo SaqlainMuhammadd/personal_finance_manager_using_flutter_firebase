@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_finance_manager_using_flutter_firebase/auth/forgot.dart';
+import 'package:personal_finance_manager_using_flutter_firebase/screens/buttomnavigationbar.dart';
 import 'package:personal_finance_manager_using_flutter_firebase/widgets/customtextfield.dart';
 import '../widgets/awesomeclipper.dart';
 
@@ -71,11 +72,20 @@ class SigninScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeScreen(),
+                            ));
+                      },
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),

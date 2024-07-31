@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager_using_flutter_firebase/screens/ExpensesScreen.dart';
 import 'package:personal_finance_manager_using_flutter_firebase/screens/IncomeScreen.dart';
 import 'package:personal_finance_manager_using_flutter_firebase/screens/ProfilePage.dart';
 import 'package:personal_finance_manager_using_flutter_firebase/screens/StatisticsScreen.dart';
+import 'package:personal_finance_manager_using_flutter_firebase/screens/homepage.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    ExpensesScreen(),
+    HomePage(),
     IncomeScreen(),
     StatisticsScreen(),
     ProfilePage(),

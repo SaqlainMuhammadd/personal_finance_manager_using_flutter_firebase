@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 22,
                 fontWeight: FontWeight.bold)),
-        scaffoldBackgroundColor: Colors.white70,
+        scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
           bodyMedium: TextStyle(color: Colors.blue.shade900),
         ),

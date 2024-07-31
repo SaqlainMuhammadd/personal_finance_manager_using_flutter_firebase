@@ -36,56 +36,64 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text('Personal Finance Manager'),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 12),
+          child: Icon(
+            Icons.menu,
+            color: Colors.white,
+          ),
+        ),
+        title: Text('PFM'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 14),
+            child: Icon(
+              Icons.notifications,
+              color: Colors.white,
+            ),
+          )
+        ],
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _onAddExpense,
-        child: Icon(Icons.add),
-        backgroundColor: Colors.blue.shade900,
-        shape: CircleBorder(),
-        elevation: 6.0,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 4.0, // Reduce notch margin
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            buildTabItem(index: 0, icon: Icons.home_sharp, label: 'Home'),
-            buildTabItem(index: 1, icon: Icons.attach_money, label: 'Budget'),
-            SizedBox(width: 48), // Ensure space for FloatingActionButton
-            buildTabItem(index: 2, icon: Icons.bar_chart, label: 'Statistics'),
-            buildTabItem(
-                index: 3, icon: Icons.person_3_outlined, label: 'Profile'),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildTabItem(
-      {required int index, required IconData icon, required String label}) {
-    return Expanded(
-      child: IconButton(
-        icon: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon,
-                color: _selectedIndex == index
-                    ? Colors.blue.shade900
-                    : Colors.grey),
-            Text(label,
-                style: TextStyle(
-                    color: _selectedIndex == index
-                        ? Colors.blue.shade900
-                        : Colors.grey)),
-          ],
-        ),
-        onPressed: () => _onItemTapped(index),
+      floatingActionButton: _selectedIndex == 0
+          ? FloatingActionButton(
+              onPressed: _onAddExpense,
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+              backgroundColor: Colors.blue.shade900,
+              shape: CircleBorder(),
+              elevation: 6.0,
+            )
+          : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_sharp),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.attach_money),
+            label: 'Budget',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bar_chart),
+            label: 'Statistics',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_3_outlined),
+            label: 'Profile',
+          ),
+        ],
+        selectedItemColor: Colors.blue.shade900,
+        unselectedItemColor: Colors.grey,
       ),
     );
   }

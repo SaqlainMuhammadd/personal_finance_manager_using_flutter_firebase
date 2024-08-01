@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 16),
             Expanded(
               child: ListView.builder(
-                itemCount: 10, // Replace with your dynamic list length
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading:
